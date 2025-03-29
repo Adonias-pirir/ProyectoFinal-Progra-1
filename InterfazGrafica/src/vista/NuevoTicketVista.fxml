@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="403.0" prefWidth="260.0" style="-fx-background-color: #4bb6fc;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/23.0.1" fx:controller="controlador.NuevoTicketControlador">
+   <children>
+      <Label layoutX="49.0" layoutY="37.0" text="Nombre del Estado" textFill="#d3ff58" />
+      <Label layoutX="51.0" layoutY="106.0" text="Descripcion del Estado" textFill="#d3ff58" />
+      <Label layoutX="51.0" layoutY="180.0" text="Estado Final" textFill="#d3ff58" />
+      <Label layoutX="51.0" layoutY="252.0" text="Estados Permitidos Siguientes" textFill="#d3ff58" />
+      <TextField fx:id="btnN" layoutX="49.0" layoutY="61.0" onMouseClicked="#nombreEstado" />
+      <TextField fx:id="btnE" layoutX="52.0" layoutY="205.0" onMouseClicked="#estadoFinal" />
+      <TextField fx:id="btnD" layoutX="52.0" layoutY="130.0" onMouseClicked="#Descripcion" />
+      <Button layoutX="94.0" layoutY="342.0" mnemonicParsing="false" onMouseClicked="#guardar" text="GUARDAR" />
+      <MenuButton fx:id="btnEPS" layoutX="49.0" layoutY="274.0" mnemonicParsing="false" onMouseClicked="#estadoPermitido" text="Seleccione...">
+        <items>
+          <MenuItem mnemonicParsing="false" text="Action 1" />
+          <MenuItem mnemonicParsing="false" text="Action 2" />
+        </items>
+      </MenuButton>
+   </children>
+</AnchorPane>

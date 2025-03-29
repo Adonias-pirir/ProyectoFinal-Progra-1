@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #117a65;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/23.0.1" fx:controller="controlador.FlujoTrabajoController">
+   <children>
+      <TableView fx:id="tbF" layoutX="18.0" layoutY="58.0" onMouseClicked="#tablaFlujo" prefHeight="241.0" prefWidth="563.0">
+        <columns>
+          <TableColumn prefWidth="75.0" text="C1" />
+          <TableColumn prefWidth="75.0" text="C2" />
+        </columns>
+      </TableView>
+      <Label layoutX="165.0" layoutY="14.0" text="Flujo de Trabajo de los Ticket" textFill="#ffe6be">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Label>
+      <Button fx:id="btnN" layoutX="73.0" layoutY="319.0" mnemonicParsing="false" onMouseClicked="#nuevoFlujo" prefHeight="25.0" prefWidth="139.0" text="Nuevo Flujo de Trabajo" />
+      <Button fx:id="btnM" layoutX="237.0" layoutY="319.0" mnemonicParsing="false" onMouseClicked="#modificarFlujo" text="Modificar Flujo" />
+      <Button fx:id="btnE" layoutX="439.0" layoutY="319.0" mnemonicParsing="false" onMouseClicked="#eliminarFlujo" text="Eliminar Flujo" />
+      <Button fx:id="btnE1" layoutX="358.0" layoutY="319.0" mnemonicParsing="false" onMouseClicked="#guardarFlujos" text="Guardar" />
+   </children>
+</AnchorPane>

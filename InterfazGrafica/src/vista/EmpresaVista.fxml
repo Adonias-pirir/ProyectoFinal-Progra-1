@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="528.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <right>
+      <AnchorPane fx:id="bp" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="529.0" style="-fx-background-color: #0cb5ca;" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="130.0" layoutY="27.0" style="-fx-border-width: 4px 4px 4px 4px;" text="Parametros del Sistema" textFill="WHITE">
+               <font>
+                  <Font size="26.0" />
+               </font>
+            </Label>
+            <Label layoutX="36.0" layoutY="87.0" style="-fx-background-color: #02707d;" text="Nombre" textFill="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="39.0" layoutY="215.0" style="-fx-background-color: #02707d;" text="Idioma Predeterminado" textFill="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="39.0" layoutY="147.0" style="-fx-background-color: #02707d;" text="Zona Horaria" textFill="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="39.0" layoutY="366.0" prefHeight="20.0" prefWidth="233.0" style="-fx-background-color: #02707d;" text="Tiempo vencimiento Tickets Inactivos" textFill="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="36.0" layoutY="292.0" style="-fx-background-color: #02707d;" text="Nivel Prioridad Ticket" textFill="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <TextField fx:id="btnNombre" layoutX="37.0" layoutY="104.0" prefHeight="13.0" prefWidth="195.0" />
+            <TextField fx:id="btnNombre4" layoutX="37.0" layoutY="386.0" prefHeight="13.0" prefWidth="195.0" />
+            <ImageView fx:id="im" fitHeight="170.0" fitWidth="229.0" layoutX="272.0" layoutY="99.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../Iconos/logo.png" />
+               </image>
+            </ImageView>
+            <MenuButton fx:id="idioma" layoutX="39.0" layoutY="234.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="191.0" text="Seleccione...">
+              <items>
+                <MenuItem mnemonicParsing="false" text="Action 1" />
+                <MenuItem mnemonicParsing="false" text="Action 2" />
+              </items>
+            </MenuButton>
+            <MenuButton fx:id="zona" layoutX="39.0" layoutY="167.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="191.0" text="Seleccione...">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Action 1" />
+                  <MenuItem mnemonicParsing="false" text="Action 2" />
+               </items>
+            </MenuButton>
+            <MenuButton fx:id="nivelPrioridad" layoutX="36.0" layoutY="312.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="191.0" text="Seleccione...">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Action 1" />
+                  <MenuItem mnemonicParsing="false" text="Action 2" />
+               </items>
+            </MenuButton>
+            <Button fx:id="btnGuardar" layoutX="356.0" layoutY="382.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="117.0" text="GUARDAR">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnCan" layoutX="356.0" layoutY="325.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="117.0" text="CANCELAR">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+   </right>
+</BorderPane>

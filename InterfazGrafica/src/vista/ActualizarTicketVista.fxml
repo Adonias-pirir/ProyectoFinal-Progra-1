@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="277.0" prefWidth="264.0" style="-fx-background-color: #1a5276;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/23.0.1" fx:controller="controlador.ActualizarTicketController">
+   <children>
+      <Label layoutX="51.0" layoutY="21.0" text="Comentarios o Adjuntos" textFill="#fff2f2">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="52.0" layoutY="134.0" text="Estado Ticket" textFill="#fff4f4">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Button fx:id="btnG" layoutX="67.0" layoutY="224.0" mnemonicParsing="false" onMouseClicked="#guardar" text="GUARDAR" />
+      <MenuButton fx:id="btnE" layoutX="29.0" layoutY="160.0" mnemonicParsing="false" onMouseClicked="#estadoTicket" prefHeight="25.0" prefWidth="205.0" text="MenuButton">
+        <items>
+          <MenuItem mnemonicParsing="false" text="Action 1" />
+          <MenuItem mnemonicParsing="false" text="Action 2" />
+        </items>
+      </MenuButton>
+      <TextField fx:id="txtC" layoutX="29.0" layoutY="47.0" onMouseClicked="#comentarios" prefHeight="77.0" prefWidth="124.0" />
+      <ImageView fx:id="img" fitHeight="77.0" fitWidth="87.0" layoutX="165.0" layoutY="47.0" onMouseClicked="#imgAdjuntar" pickOnBounds="true" preserveRatio="true" />
+      <Button fx:id="btnR" layoutX="153.0" layoutY="224.0" mnemonicParsing="false" onMouseClicked="#regresar" text="REGRESAR" />
+   </children>
+</AnchorPane>

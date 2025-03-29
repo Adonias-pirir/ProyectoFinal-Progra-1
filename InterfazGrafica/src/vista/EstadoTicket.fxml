@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #1f618d;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/23.0.1" fx:controller="controlador.EstadoTicketControlador">
+   <children>
+      <Label layoutX="161.0" layoutY="11.0" text="Estados de los Tickets" textFill="#fbfbbf">
+         <font>
+            <Font size="29.0" />
+         </font>
+      </Label>
+      <TableView layoutX="19.0" layoutY="66.0" prefHeight="249.0" prefWidth="562.0">
+        <columns>
+          <TableColumn prefWidth="75.0" text="C1" />
+          <TableColumn prefWidth="75.0" text="C2" />
+        </columns>
+      </TableView>
+      <Button fx:id="btnN" layoutX="75.0" layoutY="343.0" mnemonicParsing="false" onMouseClicked="#nuevoEstado" text="Nuevo Estado" />
+      <Button fx:id="btnM" layoutX="196.0" layoutY="343.0" mnemonicParsing="false" onMouseClicked="#modificarEstado" text="Modificar Estado" />
+      <Button fx:id="btnE" layoutX="334.0" layoutY="343.0" mnemonicParsing="false" onMouseClicked="#eliminarEstado" text="Eliminar Estado" />
+      <Button fx:id="btnA" layoutX="457.0" layoutY="343.0" mnemonicParsing="false" onMouseClicked="#actualizar" text="Actualizar" />
+   </children>
+</AnchorPane>
