@@ -4,23 +4,24 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.MenuButton?>
 <?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="300.0" prefWidth="246.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/23.0.1" fx:controller="controlador.DepartamentoControlador">
+<AnchorPane id="AnchorPane" prefHeight="300.0" prefWidth="246.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.DepartamentoControlador">
    <children>
       <Label layoutX="32.0" layoutY="21.0" text="Nombre del Departamento" />
-      <Label layoutX="32.0" layoutY="83.0" text="Descripcion del Departamento" />
+      <Label layoutX="32.0" layoutY="77.0" text="Descripcion del Departamento" />
       <Label layoutX="32.0" layoutY="170.0" text="Técnicos Asignados" />
-      <TextField fx:id="btnTecAsig" layoutX="32.0" layoutY="41.0" onMouseClicked="#nombreDepartamento" prefHeight="17.0" prefWidth="188.0" />
-      <TextField fx:id="btnDesDep" layoutX="32.0" layoutY="107.0" onMouseClicked="#descripcionDepartamento" prefHeight="49.0" prefWidth="188.0" />
-      <MenuButton fx:id="btnMenuButt" layoutX="32.0" layoutY="190.0" mnemonicParsing="false" onMouseClicked="#tecnicosAsignados" prefHeight="17.0" prefWidth="188.0" text="Seleccione...">
+      <TextField fx:id="nombreDepto" layoutX="32.0" layoutY="41.0" prefHeight="17.0" prefWidth="188.0" />
+      <MenuButton fx:id="tecnicoAdo" layoutX="32.0" layoutY="190.0" mnemonicParsing="false" onMouseClicked="#tecnicosAsignados" prefHeight="17.0" prefWidth="188.0" text="Seleccione...">
         <items>
-          <MenuItem mnemonicParsing="false" text="Action 1" />
-          <MenuItem mnemonicParsing="false" text="Action 2" />
+          <MenuItem mnemonicParsing="false" onAction="#seleccionarUsuario" text="Adonias" />
+          <MenuItem mnemonicParsing="false" onAction="#seleccionarUsuario" text="Miguel" />
+            <MenuItem mnemonicParsing="false" onAction="#seleccionarUsuario" text="Nohemi" />
         </items>
       </MenuButton>
-      <Button fx:id="btnGuardarD" layoutX="148.0" layoutY="251.0" mnemonicParsing="false" onMouseClicked="#guardarDepartamento" text="GUARDAR" />
+      <Button fx:id="guardarDepto" layoutX="148.0" layoutY="251.0" mnemonicParsing="false" onAction="#guardarDepto" text="GUARDAR" />
+      <TextArea fx:id="descripcionDepto" layoutX="29.0" layoutY="96.0" prefHeight="69.0" prefWidth="188.0" />
    </children>
 </AnchorPane>

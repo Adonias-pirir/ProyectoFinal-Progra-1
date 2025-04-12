@@ -14,15 +14,16 @@
             <Font size="23.0" />
          </font>
       </Label>
-      <TableView fx:id="tbDepto" layoutX="14.0" layoutY="48.0" onMouseClicked="#tbDeptoExistentes" prefHeight="263.0" prefWidth="577.0">
+      <TableView fx:id="tbDepartamento" layoutX="14.0" layoutY="48.0" prefHeight="263.0" prefWidth="577.0">
         <columns>
-          <TableColumn prefWidth="75.0" text="C1" />
-          <TableColumn prefWidth="75.0" text="C2" />
+          <TableColumn fx:id="clNombre" prefWidth="175.33334350585938" text="Nombre Departamento" />
+          <TableColumn fx:id="clDescrip" prefWidth="248.0" text="Descripción Departamento" />
+            <TableColumn fx:id="clTecno" prefWidth="152.66668701171875" text="Técnico Asignado" />
         </columns>
       </TableView>
-      <Button layoutX="14.0" layoutY="331.0" mnemonicParsing="false" onMouseClicked="#nuevoDepto" text="Nuevo Departamento" />
-      <Button layoutX="156.0" layoutY="331.0" mnemonicParsing="false" onMouseClicked="#modDepto" text="Modificar Departamento" />
-      <Button layoutX="317.0" layoutY="331.0" mnemonicParsing="false" onMouseClicked="#elimDepto" text="Eliminar Departamento" />
-      <Button fx:id="btnActua" layoutX="479.0" layoutY="331.0" mnemonicParsing="false" onMouseClicked="#actualizar" text="ACTUALIZAR" />
+      <Button fx:id="nuevoDepto" layoutX="14.0" layoutY="331.0" mnemonicParsing="false" onMouseClicked="#nuevoDepto" text="Nuevo Departamento" />
+      <Button fx:id="modificarDepto" layoutX="156.0" layoutY="331.0" mnemonicParsing="false" onMouseClicked="#modificarDepto" text="Modificar Departamento" />
+      <Button fx:id="eliminarDepto" layoutX="317.0" layoutY="331.0" mnemonicParsing="false" onMouseClicked="#eliminarDepto" text="Eliminar Departamento" />
+      <Button fx:id="actualizar" layoutX="479.0" layoutY="331.0" mnemonicParsing="false" onMouseClicked="#actualizarTabla" text="ACTUALIZAR" />
    </children>
 </AnchorPane>

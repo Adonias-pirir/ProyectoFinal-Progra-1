@@ -6,7 +6,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane id="AnchorPane" prefHeight="504.0" prefWidth="379.0" style="-fx-background-color: #17a589;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.NewUsuarioControlador">
    <children>
       <Label layoutX="68.0" layoutY="24.0" text="Nombres" textFill="WHITE">
@@ -39,24 +38,24 @@
             <Font size="15.0" />
          </font>
       </Label>
-      <Label layoutX="64.0" layoutY="426.0" text="Departamento" textFill="WHITE">
+      <Label layoutX="64.0" layoutY="426.0" text="Departamento (técnico)" textFill="WHITE">
          <font>
             <Font size="15.0" />
          </font>
       </Label>
-      <TextField fx:id="btnN" layoutX="65.0" layoutY="54.0" onMouseClicked="#nombres" />
-      <TextField fx:id="btnC" layoutX="61.0" layoutY="315.0" onMouseClicked="#contraseña" />
-      <TextField fx:id="btnNU" layoutX="61.0" layoutY="254.0" onMouseClicked="#nombreUsuario" />
-      <TextField fx:id="btnCE" layoutX="61.0" layoutY="184.0" onMouseClicked="#correElectronico" />
-      <TextField fx:id="btnA" layoutX="61.0" layoutY="118.0" onMouseClicked="#apellidos" />
-      <TextField fx:id="btnD" layoutX="65.0" layoutY="454.0" onMouseClicked="#departamento" />
-      <TextField fx:id="btnRA" layoutX="61.0" layoutY="386.0" onMouseClicked="#rolAsignado" />
-      <Button layoutX="253.0" layoutY="383.0" mnemonicParsing="false" text="REGISTRAR">
+      <TextField fx:id="nombres" layoutX="61.0" layoutY="55.0" />
+      <TextField fx:id="contraseña" layoutX="61.0" layoutY="315.0" />
+      <TextField fx:id="nombreUsuario" layoutX="61.0" layoutY="254.0" />
+      <TextField fx:id="email" layoutX="61.0" layoutY="184.0" />
+      <TextField fx:id="apellidos" layoutX="61.0" layoutY="118.0" />
+      <TextField fx:id="departamento" layoutX="61.0" layoutY="454.0" />
+      <TextField fx:id="rolAsignado" layoutX="61.0" layoutY="386.0" />
+      <Button fx:id="registrar" layoutX="252.0" layoutY="348.0" mnemonicParsing="false" onMouseClicked="#registrar" text="REGISTRAR">
          <font>
             <Font size="15.0" />
          </font>
       </Button>
-      <Button fx:id="btnCan" layoutX="253.0" layoutY="324.0" mnemonicParsing="false" onMouseClicked="#cancelar" text="CANCELAR">
+      <Button fx:id="btnCan" layoutX="252.0" layoutY="399.0" mnemonicParsing="false" onMouseClicked="#cancelar" text="CANCELAR">
          <font>
             <Font size="15.0" />
          </font>

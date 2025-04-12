@@ -7,8 +7,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane id="AnchorPane" fx:id="bpRol" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="416.0" prefWidth="390.0" style="-fx-background-color: #069193;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/23.0.1" fx:controller="controlador.NuevoRolControl">
+<AnchorPane id="AnchorPane" fx:id="bpRol" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="416.0" prefWidth="390.0" style="-fx-background-color: #069193;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.NuevoRolControl">
    <children>
       <Label layoutX="22.0" layoutY="51.0" text="Nombre del Rol" textFill="#cbff3c">
          <font>
@@ -20,8 +19,8 @@
             <Font size="15.0" />
          </font>
       </Label>
-      <TextField fx:id="nombreRol" layoutX="22.0" layoutY="72.0" prefHeight="21.0" prefWidth="195.0" />
-      <TextField fx:id="descripRol" layoutX="22.0" layoutY="134.0" prefHeight="73.0" prefWidth="195.0" />
+      <TextField fx:id="nombreRol" layoutX="22.0" layoutY="72.0" prefHeight="25.0" prefWidth="215.0" />
+      <TextField fx:id="descripRol" layoutX="22.0" layoutY="134.0" prefHeight="73.0" prefWidth="215.0" />
       <Label layoutX="22.0" layoutY="238.0" text="Nombre del Permiso" textFill="#00ff9d">
          <font>
             <Font size="15.0" />
@@ -32,18 +31,18 @@
             <Font size="15.0" />
          </font>
       </Label>
-      <TextField fx:id="nombrePermiso" layoutX="22.0" layoutY="260.0" prefHeight="21.0" prefWidth="195.0" />
-      <TextField fx:id="descripPermiso" layoutX="22.0" layoutY="318.0" prefHeight="73.0" prefWidth="195.0" />
-      <Button fx:id="guardarRol" layoutX="245.0" layoutY="176.0" mnemonicParsing="false" text="Guardar Rol">
-         <font>
-            <Font size="15.0" />
-         </font>
-      </Button>
-      <Button fx:id="guardarPermiso" layoutX="238.0" layoutY="361.0" mnemonicParsing="false" text="Guardar Permiso">
+      <TextField fx:id="nombrePermiso" layoutX="22.0" layoutY="260.0" prefHeight="25.0" prefWidth="215.0" />
+      <TextField fx:id="descripPermiso" layoutX="22.0" layoutY="318.0" prefHeight="73.0" prefWidth="215.0" />
+      <Button fx:id="guardarRol" layoutX="256.0" layoutY="302.0" mnemonicParsing="false" onAction="#guardarRol" text="Guardar Rol">
          <font>
             <Font size="15.0" />
          </font>
       </Button>
       <Pane layoutX="-1.0" prefHeight="46.0" prefWidth="390.0" style="-fx-background-color: #065864;" />
+      <Button fx:id="btnSalir" layoutX="307.0" layoutY="355.0" mnemonicParsing="false" onAction="#Salir" text="Salir">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

@@ -7,18 +7,19 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #1f618d;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/23.0.1" fx:controller="controlador.EstadoTicketControlador">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #1f618d;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.EstadoTicketControlador">
    <children>
       <Label layoutX="161.0" layoutY="11.0" text="Estados de los Tickets" textFill="#fbfbbf">
          <font>
             <Font size="29.0" />
          </font>
       </Label>
-      <TableView layoutX="19.0" layoutY="66.0" prefHeight="249.0" prefWidth="562.0">
+      <TableView fx:id="tbEstadoTicket" layoutX="19.0" layoutY="66.0" prefHeight="249.0" prefWidth="562.0">
         <columns>
-          <TableColumn prefWidth="75.0" text="C1" />
-          <TableColumn prefWidth="75.0" text="C2" />
+          <TableColumn fx:id="clNombre" prefWidth="134.66668701171875" text="Nombre del estado" />
+          <TableColumn fx:id="clDescripcion" prefWidth="175.33328247070312" text="Descripcion del estado" />
+            <TableColumn fx:id="clEstado" prefWidth="108.66668701171875" text="Estado final" />
+            <TableColumn fx:id="clEstados" prefWidth="143.33331298828125" text="Estados permitidos" />
         </columns>
       </TableView>
       <Button fx:id="btnN" layoutX="75.0" layoutY="343.0" mnemonicParsing="false" onMouseClicked="#nuevoEstado" text="Nuevo Estado" />

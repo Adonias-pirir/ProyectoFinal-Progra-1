@@ -7,22 +7,25 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="403.0" prefWidth="260.0" style="-fx-background-color: #4bb6fc;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/23.0.1" fx:controller="controlador.NuevoTicketControlador">
+<AnchorPane id="AnchorPane" prefHeight="403.0" prefWidth="260.0" style="-fx-background-color: #4bb6fc;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.NuevoTicketControlador">
    <children>
       <Label layoutX="49.0" layoutY="37.0" text="Nombre del Estado" textFill="#d3ff58" />
       <Label layoutX="51.0" layoutY="106.0" text="Descripcion del Estado" textFill="#d3ff58" />
       <Label layoutX="51.0" layoutY="180.0" text="Estado Final" textFill="#d3ff58" />
       <Label layoutX="51.0" layoutY="252.0" text="Estados Permitidos Siguientes" textFill="#d3ff58" />
-      <TextField fx:id="btnN" layoutX="49.0" layoutY="61.0" onMouseClicked="#nombreEstado" />
-      <TextField fx:id="btnE" layoutX="52.0" layoutY="205.0" onMouseClicked="#estadoFinal" />
-      <TextField fx:id="btnD" layoutX="52.0" layoutY="130.0" onMouseClicked="#Descripcion" />
-      <Button layoutX="94.0" layoutY="342.0" mnemonicParsing="false" onMouseClicked="#guardar" text="GUARDAR" />
-      <MenuButton fx:id="btnEPS" layoutX="49.0" layoutY="274.0" mnemonicParsing="false" onMouseClicked="#estadoPermitido" text="Seleccione...">
+      <TextField fx:id="nombreEstado" layoutX="49.0" layoutY="61.0" />
+      <TextField fx:id="estadoFinal" layoutX="52.0" layoutY="205.0" promptText="resuelto o cerrado" />
+      <TextField fx:id="descripcionEstado" layoutX="52.0" layoutY="130.0" />
+      <Button fx:id="guardar" layoutX="24.0" layoutY="337.0" mnemonicParsing="false" onMouseClicked="#guardar" text="GUARDAR ESTADO" />
+      <MenuButton fx:id="estadosPermitidos" layoutX="49.0" layoutY="274.0" mnemonicParsing="false" onMouseClicked="#estadosPermitidos" text="Seleccione...">
         <items>
-          <MenuItem mnemonicParsing="false" text="Action 1" />
-          <MenuItem mnemonicParsing="false" text="Action 2" />
+          <MenuItem mnemonicParsing="false" onAction="#seleccionarEstado" text="Pendiente" />
+          <MenuItem mnemonicParsing="false" onAction="#seleccionarEstado" text="En proceso" />
+            <MenuItem mnemonicParsing="false" onAction="#seleccionarEstado" text="Escalado" />
+            <MenuItem mnemonicParsing="false" onAction="#seleccionarEstado" text="Resuelto" />
+            <MenuItem mnemonicParsing="false" onAction="#seleccionarEstado" text="Cerrado" />
         </items>
       </MenuButton>
+      <Button fx:id="cancelar" layoutX="164.0" layoutY="337.0" mnemonicParsing="false" onMouseClicked="#cancelar" text="CANCELAR" />
    </children>
 </AnchorPane>

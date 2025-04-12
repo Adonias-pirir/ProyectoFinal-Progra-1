@@ -9,12 +9,13 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="bp" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="451.0" prefWidth="461.0" style="-fx-background-color: #043d44;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.RolControlador">
+<AnchorPane id="AnchorPane" fx:id="bp" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="451.0" prefWidth="547.0" style="-fx-background-color: #043d44;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.RolControlador">
    <children>
-      <MenuButton fx:id="administrador" layoutY="1.0" mnemonicParsing="false" style="-fx-background-color: transparent; -fx-border-color: gray; -fx-border-width: 0px 1px 1px 0px;" text="Administrador" textFill="WHITE">
+      <MenuButton fx:id="administrador" layoutY="1.0" mnemonicParsing="false" style="-fx-background-color: transparent; -fx-border-color: gray; -fx-border-width: 0px 1px 1px 0px;" text="Roles existentes" textFill="WHITE">
         <items>
-          <MenuItem mnemonicParsing="false" text="Action 1" />
-          <MenuItem mnemonicParsing="false" text="Action 2" />
+          <MenuItem mnemonicParsing="false" text="Administrador" />
+          <MenuItem mnemonicParsing="false" text="Técnico" />
+            <MenuItem mnemonicParsing="false" text="Usuario" />
         </items>
          <font>
             <Font size="15.0" />
@@ -23,43 +24,34 @@
             <Insets right="4.0" />
          </opaqueInsets>
       </MenuButton>
-      <MenuButton fx:id="tecnico" layoutX="135.0" layoutY="1.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="91.0" style="-fx-background-color: transparent; -fx-border-color: gray; -fx-border-width: 0px 1px 1px 0px;" text="Técnico" textFill="WHITE">
-         <items>
-            <MenuItem mnemonicParsing="false" text="Action 1" />
-            <MenuItem mnemonicParsing="false" text="Action 2" />
-         </items>
-         <font>
-            <Font size="15.0" />
-         </font>
-      </MenuButton>
-      <MenuButton fx:id="usuario" layoutX="226.0" layoutY="1.0" mnemonicParsing="false" style="-fx-background-color: transparent; -fx-border-color: gray; -fx-border-width: 0px 1px 1px 0px;" text="Usuario" textFill="WHITE">
-         <items>
-            <MenuItem mnemonicParsing="false" text="Action 1" />
-            <MenuItem mnemonicParsing="false" text="Action 2" />
-         </items>
-         <font>
-            <Font size="15.0" />
-         </font>
-      </MenuButton>
-      <Button fx:id="nuevoRol" layoutX="17.0" layoutY="102.0" mnemonicParsing="false" onMouseClicked="#NuevoRol" prefHeight="39.0" prefWidth="102.0" text="Nuevo Rol" />
-      <Button fx:id="modificarRol" layoutX="17.0" layoutY="158.0" mnemonicParsing="false" onMouseClicked="#ModificarRol" prefHeight="39.0" prefWidth="102.0" text="Modificar Rol" />
-      <Button fx:id="eliminarRol" layoutX="17.0" layoutY="330.0" mnemonicParsing="false" onMouseClicked="#EliminarRol" prefHeight="39.0" prefWidth="102.0" text="Eliminar Rol" />
-      <TableView fx:id="tbRol" layoutX="128.0" layoutY="102.0" prefHeight="268.0" prefWidth="312.0">
+      <Button fx:id="nuevoRol" layoutX="17.0" layoutY="151.0" mnemonicParsing="false" onMouseClicked="#NuevoRol" prefHeight="39.0" prefWidth="102.0" text="Nuevo Rol/Permiso" />
+      <Button fx:id="modificarRol" layoutX="17.0" layoutY="216.0" mnemonicParsing="false" onMouseClicked="#ModificarRol" prefHeight="39.0" prefWidth="102.0" text="Modificar Rol" />
+      <Button fx:id="eliminarRol" layoutX="17.0" layoutY="280.0" mnemonicParsing="false" onMouseClicked="#EliminarRol" prefHeight="39.0" prefWidth="102.0" text="Eliminar Rol" />
+      <TableView fx:id="tbRolesPermisos" layoutX="128.0" layoutY="102.0" prefHeight="268.0" prefWidth="405.0">
         <columns>
-          <TableColumn prefWidth="75.0" text="NOMBRE" />
-          <TableColumn prefWidth="93.33334350585938" text="DESCRIPCION" />
+          <TableColumn fx:id="clRol" prefWidth="92.66665649414062" text="NOMBRE ROL" />
+          <TableColumn fx:id="clRDes" prefWidth="108.66668701171875" text="DESCRIPCION ROL" />
+            <TableColumn fx:id="clPer" minWidth="5.3333740234375" prefWidth="87.33331298828125" text="PERMISO" />
+            <TableColumn fx:id="clPDes" prefWidth="114.66667683919269" text="DESCRIPCION" />
         </columns>
       </TableView>
-      <MenuButton fx:id="permisos" layoutX="318.0" layoutY="1.0" mnemonicParsing="false" style="-fx-background-color: transparent; -fx-border-color: gray; -fx-border-width: 0px 1px 1px 0px;" text="Permisos" textFill="WHITE">
+      <MenuButton fx:id="permisos" layoutX="147.0" layoutY="1.0" mnemonicParsing="false" style="-fx-background-color: transparent; -fx-border-color: gray; -fx-border-width: 0px 1px 1px 0px;" text="Permisos existentes" textFill="WHITE">
          <items>
-            <MenuItem mnemonicParsing="false" text="Action 1" />
-            <MenuItem mnemonicParsing="false" text="Action 2" />
+            <MenuItem mnemonicParsing="false" text="Crear tickets" />
+            <MenuItem mnemonicParsing="false" text="Ver tickets" />
+            <MenuItem mnemonicParsing="false" text="Editar tickets" />
+            <MenuItem mnemonicParsing="false" text="Eliminar tickets" />
+            <MenuItem mnemonicParsing="false" text="Asiganar tickets" />
+            <MenuItem mnemonicParsing="false" text="Cambiar estado de tickets" />
+            <MenuItem mnemonicParsing="false" text="Agregar notas a tickets" />
+            <MenuItem mnemonicParsing="false" text="Gestionar usuarios" />
+            <MenuItem mnemonicParsing="false" text="Gestionar departamentos" />
+            <MenuItem mnemonicParsing="false" text="Gestionar flujos de trabajo" />
+            <MenuItem mnemonicParsing="false" text="Configuracion del sistema" />
          </items>
          <font>
             <Font size="15.0" />
          </font>
       </MenuButton>
-      <Button fx:id="nuevoPermiso" layoutX="17.0" layoutY="215.0" mnemonicParsing="false" onMouseClicked="#NuevoPermiso" prefHeight="39.0" prefWidth="102.0" text="Nuevo Permiso" />
-      <Button fx:id="asignarPermiso" layoutX="17.0" layoutY="273.0" mnemonicParsing="false" onMouseClicked="#AsignarPermiso" prefHeight="39.0" prefWidth="102.0" text="Asignar Permiso" />
    </children>
 </AnchorPane>

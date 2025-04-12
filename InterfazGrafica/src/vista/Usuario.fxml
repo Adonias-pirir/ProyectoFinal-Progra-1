@@ -7,13 +7,17 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #45b39d;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/23.0.1" fx:controller="controlador.UsuarioControlador">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="690.0" style="-fx-background-color: #45b39d;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.UsuarioControlador">
    <children>
-      <TableView fx:id="tbUs" layoutX="38.0" layoutY="56.0" onMouseClicked="#tbUsuario" prefHeight="251.0" prefWidth="540.0">
+      <TableView fx:id="tbUs" layoutX="10.0" layoutY="56.0" onMouseClicked="#tbUsuario" prefHeight="251.0" prefWidth="672.0">
         <columns>
-          <TableColumn prefWidth="75.0" text="C1" />
-          <TableColumn prefWidth="75.0" text="C2" />
+          <TableColumn fx:id="clNombres" prefWidth="75.0" text="Nombres" />
+          <TableColumn fx:id="clApellidos" prefWidth="75.0" text="Apellidos" />
+            <TableColumn fx:id="clEmail" prefWidth="120.66667175292969" text="E-mail" />
+            <TableColumn fx:id="clUsuario" prefWidth="98.0" text="Nombre Usuario" />
+            <TableColumn fx:id="clContraseña" prefWidth="75.99993896484375" text="Contraseña" />
+            <TableColumn fx:id="clRol" prefWidth="81.99996948242188" text="Rol Asignado" />
+            <TableColumn fx:id="clDepartamento" prefWidth="142.66668701171875" text="Departamento (técnico)" />
         </columns>
       </TableView>
       <Label layoutX="209.0" layoutY="14.0" text="Registrar Usuario">
@@ -21,7 +25,8 @@
             <Font size="24.0" />
          </font>
       </Label>
-      <Button fx:id="btnNU" layoutX="205.0" layoutY="339.0" mnemonicParsing="false" onMouseClicked="#nuevoUsuario" text="Nuevo Usuario" />
-      <Button fx:id="btnMU" layoutX="335.0" layoutY="339.0" mnemonicParsing="false" onMouseClicked="#modificarUsuario" text="Modificar Usuario" />
+      <Button fx:id="btnNU" layoutX="196.0" layoutY="339.0" mnemonicParsing="false" onMouseClicked="#nuevoUsuario" text="Nuevo Usuario" />
+      <Button fx:id="btnMU" layoutX="318.0" layoutY="339.0" mnemonicParsing="false" onMouseClicked="#modificarUsuario" text="Modificar Usuario" />
+      <Button fx:id="btnElim" layoutX="451.0" layoutY="339.0" mnemonicParsing="false" onMouseClicked="#eliminar" text="Eliminar" />
    </children>
 </AnchorPane>

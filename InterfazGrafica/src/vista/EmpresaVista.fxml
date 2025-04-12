@@ -49,7 +49,7 @@
             <TextField fx:id="btnNombre4" layoutX="37.0" layoutY="386.0" prefHeight="13.0" prefWidth="195.0" />
             <ImageView fx:id="im" fitHeight="170.0" fitWidth="229.0" layoutX="272.0" layoutY="99.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../Iconos/logo.png" />
+                  <Image url="@../Images/logo.png" />
                </image>
             </ImageView>
             <MenuButton fx:id="idioma" layoutX="39.0" layoutY="234.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="191.0" text="Seleccione...">
