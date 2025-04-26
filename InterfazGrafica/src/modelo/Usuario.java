@@ -12,6 +12,7 @@ import java.util.Objects;
  */
 public class Usuario {
     
+    private int id;
     private String nombres;
     private String apellidos;
     private String email;
@@ -20,7 +21,12 @@ public class Usuario {
     private String rolAsignado;
     private String departamento;
 
+    public Usuario() {
+    // Constructor vacío necesario para crear objetos sin pasar argumentos
+}
+    
     public Usuario(String nombres, String apellidos, String email, String nombreUsuario, String contraseña, String rolAsignado, String departamento) {
+        //this.id = id;
         this.nombres = nombres;
         this.apellidos = apellidos;
         this.email = email;
@@ -30,6 +36,15 @@ public class Usuario {
         this.departamento = departamento;
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    
     public String getNombres() {
         return nombres;
     }
@@ -104,6 +119,9 @@ public class Usuario {
             return false;
         }
         final Usuario other = (Usuario) obj;
+        if (!Objects.equals(this.id, other.id)) {
+            return false;
+        }
         if (!Objects.equals(this.nombres, other.nombres)) {
             return false;
         }

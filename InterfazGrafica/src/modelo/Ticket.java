@@ -12,16 +12,38 @@ import java.util.Objects;
  */
 public class Ticket {
     
+    private int id;
     private String nombreEstado;
     private String descripcionEstado;
     private String estadoFinal;
     private String estadosPermitidos;
+    private String fechaCreacion;
+    private int usuarioId;
+    
+    public Ticket() {}
 
-    public Ticket(String nombreEstado, String descripcionEstado, String estadoFinal, String estadosPermitidos) {
-        this.nombreEstado = nombreEstado;
-        this.descripcionEstado = descripcionEstado;
-        this.estadoFinal = estadoFinal;
-        this.estadosPermitidos = estadosPermitidos;
+    public Ticket(String nombreEstado, String descripcionEstado, String estadoFinal, String estadosPermitidos, String fechaCreacion, int usuarioId) {
+    this.nombreEstado = nombreEstado;
+    this.descripcionEstado = descripcionEstado;
+    this.estadoFinal = estadoFinal;
+    this.estadosPermitidos = estadosPermitidos;
+    this.fechaCreacion = fechaCreacion;
+    this.usuarioId = usuarioId;
+}
+    
+    public int getId() { 
+        return id;
+    }
+    public void setId(int id) { 
+        this.id = id;
+    }
+    
+    public String getFechaCreacion() {
+        return fechaCreacion;
+    }
+
+    public void setFechaCreacion(String fechaCreacion) {
+        this.fechaCreacion = fechaCreacion;
     }
 
     public String getNombreEstado() {
@@ -55,10 +77,13 @@ public class Ticket {
     public void setEstadosPermitidos(String estadosPermitidos) {
         this.estadosPermitidos = estadosPermitidos;
     }
+    
+    public int getUsuarioId() { return usuarioId; }
+    public void setUsuarioId(int usuarioId) { this.usuarioId = usuarioId; }
 
     @Override
     public int hashCode() {
-        int hash = 7;
+        int hash = 5;
         return hash;
     }
 
@@ -74,6 +99,12 @@ public class Ticket {
             return false;
         }
         final Ticket other = (Ticket) obj;
+        if (this.id != other.id) {
+            return false;
+        }
+        if (this.usuarioId != other.usuarioId) {
+            return false;
+        }
         if (!Objects.equals(this.nombreEstado, other.nombreEstado)) {
             return false;
         }
@@ -83,9 +114,10 @@ public class Ticket {
         if (!Objects.equals(this.estadoFinal, other.estadoFinal)) {
             return false;
         }
-        return Objects.equals(this.estadosPermitidos, other.estadosPermitidos);
+        if (!Objects.equals(this.estadosPermitidos, other.estadosPermitidos)) {
+            return false;
+        }
+        return Objects.equals(this.fechaCreacion, other.fechaCreacion);
     }
-    
-    
     
 }

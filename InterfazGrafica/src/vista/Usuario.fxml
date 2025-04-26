@@ -7,17 +7,18 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="690.0" style="-fx-background-color: #45b39d;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.UsuarioControlador">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="755.0" style="-fx-background-color: #45b39d;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.UsuarioControlador">
    <children>
-      <TableView fx:id="tbUs" layoutX="10.0" layoutY="56.0" onMouseClicked="#tbUsuario" prefHeight="251.0" prefWidth="672.0">
+      <TableView fx:id="tbUs" layoutX="5.0" layoutY="57.0" onMouseClicked="#tbUsuario" prefHeight="251.0" prefWidth="745.0">
         <columns>
-          <TableColumn fx:id="clNombres" prefWidth="75.0" text="Nombres" />
-          <TableColumn fx:id="clApellidos" prefWidth="75.0" text="Apellidos" />
-            <TableColumn fx:id="clEmail" prefWidth="120.66667175292969" text="E-mail" />
-            <TableColumn fx:id="clUsuario" prefWidth="98.0" text="Nombre Usuario" />
-            <TableColumn fx:id="clContraseña" prefWidth="75.99993896484375" text="Contraseña" />
-            <TableColumn fx:id="clRol" prefWidth="81.99996948242188" text="Rol Asignado" />
-            <TableColumn fx:id="clDepartamento" prefWidth="142.66668701171875" text="Departamento (técnico)" />
+            <TableColumn fx:id="clId" prefWidth="39.3333420753479" text="Id" />
+          <TableColumn fx:id="clNombres" prefWidth="93.33334350585938" text="Nombres" />
+          <TableColumn fx:id="clApellidos" prefWidth="89.33331298828125" text="Apellidos" />
+            <TableColumn fx:id="clEmail" prefWidth="108.00003051757812" text="E-mail" />
+            <TableColumn fx:id="clUsuario" prefWidth="102.00006103515625" text="Nombre Usuario" />
+            <TableColumn fx:id="clContraseña" prefWidth="76.6666259765625" text="Contraseña" />
+            <TableColumn fx:id="clRol" prefWidth="82.66668701171875" text="Rol Asignado" />
+            <TableColumn fx:id="clDepartamento" prefWidth="157.99993896484375" text="Departamento (técnico)" />
         </columns>
       </TableView>
       <Label layoutX="209.0" layoutY="14.0" text="Registrar Usuario">
