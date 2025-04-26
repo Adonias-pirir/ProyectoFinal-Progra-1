@@ -26,6 +26,8 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import modelo.Ticket;
+import modelo.TicketDAO;
+import modelo.Usuario;
 
 /**
  * FXML Controller class
@@ -54,6 +56,15 @@ public class EstadoTicketControlador implements Initializable {
     private TableView<Ticket> tbEstadoTicket;
     
     private ObservableList<Ticket> ticket;
+    @FXML
+    private TableColumn clId;
+    @FXML
+    private TableColumn clFecha;
+    @FXML
+    private TableColumn clUsuarioId;
+    private TicketDAO ticketDAO;
+    private Usuario usuario;
+
 
     /**
      * Initializes the controller class.
@@ -61,14 +72,32 @@ public class EstadoTicketControlador implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        clId.setCellValueFactory(new PropertyValueFactory<>("id"));
         clNombre.setCellValueFactory(new PropertyValueFactory<>("nombreEstado"));
         clDescripcion.setCellValueFactory(new PropertyValueFactory<>("descripcionEstado"));
         clEstado.setCellValueFactory(new PropertyValueFactory<>("estadoFinal"));
         clEstados.setCellValueFactory(new PropertyValueFactory<>("estadosPermitidos"));
+        clFecha.setCellValueFactory(new PropertyValueFactory<>("fechaCreacion"));
+        clUsuarioId.setCellValueFactory(new PropertyValueFactory<>("usuarioId"));
         
-        ticket = FXCollections.observableArrayList(); // por si lo quieres cargar desde aquí
+        ticketDAO = new TicketDAO();
+        ticket = FXCollections.observableArrayList(ticketDAO.obtenerTickets());
         tbEstadoTicket.setItems(ticket);
-    }    
+        
+        cargarTicketsDesdeBD(); // Esto se implementará con el DAO
+    }
+    
+    //public void setUsuario(Usuario usuario) {
+    //this.usuario = usuario;
+//}    
+    private void recargarTabla() {
+    ticket.setAll(ticketDAO.obtenerTickets());
+}
+
+    private void cargarTicketsDesdeBD() {
+        ticketDAO = new TicketDAO();
+        ticket.setAll(ticketDAO.obtenerTickets());
+    }  
 
     @FXML
     private void nuevoEstado(MouseEvent event) {
@@ -77,10 +106,10 @@ public class EstadoTicketControlador implements Initializable {
             ticket = FXCollections.observableArrayList();
         }
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/vista/NuevoTicketVista.fxml"));
-            Parent root;
-            root = loader.load();
+            Parent root = loader.load();
         
             NuevoTicketControlador controlador = loader.getController();
+            //controlador.setUsuario(this.usuario);
             controlador.initAttributtes(ticket);
             
             Scene scene = new Scene(root);
@@ -90,35 +119,28 @@ public class EstadoTicketControlador implements Initializable {
             stage.showAndWait();
             
             Ticket t = controlador.getTicket();
-            if(t != null){
-                this.ticket.add(t);
-                this.tbEstadoTicket.refresh();
+            if (t != null) {
+                recargarTabla();
+            } else {
+                mostrarError("No se pudo guardar el ticket en la base de datos.");
             }
-            
-        } catch (IOException ex) {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setHeaderText(null);
-            alert.setTitle("Error");
-            alert.setContentText(ex.getMessage());
-            alert.showAndWait();
-        }
+
+    } catch (IOException ex) {
+        mostrarError("Error al cargar el formulario: " + ex.getMessage());
     }
+}
 
     @FXML
     private void modificarEstado(MouseEvent event) {
         Ticket t = this.tbEstadoTicket.getSelectionModel().getSelectedItem();
         
             if (t == null){
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setHeaderText(null);
-            alert.setTitle("Error");
-            alert.setContentText("Debe seleccionar una opcion");
-            alert.showAndWait();
-        }else{
+            mostrarError("Debe seleccionar un ticket.");
+            return;
+        } //else{
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/vista/NuevoTicketVista.fxml"));
-            Parent root;
-            root = loader.load();
+            Parent root = loader.load();
         
             NuevoTicketControlador controlador = loader.getController();
             controlador.initAttributtes(ticket, t);
@@ -129,41 +151,53 @@ public class EstadoTicketControlador implements Initializable {
             stage.setScene(scene);
             stage.showAndWait();
             
-            Ticket tc = controlador.getTicket();
-            if(tc != null){
-                //this.ticket.add(t);
-                this.tbEstadoTicket.refresh();
+            Ticket ta = controlador.getTicket();
+            if (ta != null) {
+            ticketDAO = new TicketDAO();
+            boolean exito = ticketDAO.actualizarTicket(ta);
+            if (exito) {
+                recargarTabla();
+            } else {
+                mostrarError("No se pudo actualizar el ticket en la base de datos.");
             }
-            
-        } catch (IOException ex) {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setHeaderText(null);
-            alert.setTitle("Error");
-            alert.setContentText(ex.getMessage());
-            alert.showAndWait();
         }
-        }
-    }    
+
+    } catch (IOException ex) {
+        mostrarError("Error al cargar el formulario: " + ex.getMessage());
+    }
+}
 
     @FXML
     private void eliminarEstado(MouseEvent event) {
-        Ticket t = this.tbEstadoTicket.getSelectionModel().getSelectedItem();
+        Ticket t = tbEstadoTicket.getSelectionModel().getSelectedItem();
         
         if(t == null){
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setHeaderText(null);
-            alert.setTitle("Error");
-            alert.setContentText("Debes seleccionar una opcion");
-            alert.showAndWait();
-        }else{
-            this.ticket.remove(t);
+            mostrarError("Debe seleccionar un ticket.");
+            return;
+        }//else{
+        ticketDAO = new TicketDAO();
+        if (ticketDAO.eliminarTicket(t.getId())) {
+            ticket.remove(t);
+            recargarTabla();
+        } else {
+            mostrarError("No se pudo eliminar el ticket.");
+        }
+            /*this.ticket.remove(t);
             this.tbEstadoTicket.refresh();
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
             alert.setHeaderText(null);
             alert.setTitle("Informacion");
             alert.setContentText("Eliminado exitosamente");
-            alert.showAndWait();
-        }
+            alert.showAndWait();*/
+        
+    }
+    
+    private void mostrarError(String mensaje) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Error");
+        alert.setHeaderText(null);
+        alert.setContentText(mensaje);
+        alert.showAndWait();
     }
 
     @FXML

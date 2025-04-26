@@ -65,6 +65,9 @@ public class LoginControlador implements Initializable {
             String password = txtPassword.getText();
 
             if (validarCredenciales(usuarioSeleccionado, usuario, password)) {
+                //guardar el usuario en Sesion
+                Sesion.setTipoUsuario(usuarioSeleccionado);
+                
                 // Si las credenciales son correctas, abrir la siguiente ventana
                 Stage stage = new Stage();
                 Parent root = FXMLLoader.load(getClass().getResource("/vista/PrincipalVista.fxml"));

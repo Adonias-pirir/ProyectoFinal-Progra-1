@@ -6,6 +6,8 @@ package controlador;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.List;
+import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -19,6 +21,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -26,6 +29,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import modelo.Usuario;
+import modelo.UsuarioDAO;
 
 /**
  * FXML Controller class
@@ -40,6 +44,8 @@ public class UsuarioControlador implements Initializable {
     private Button btnNU;
     @FXML
     private Button btnMU;
+    @FXML
+    private TableColumn clId;
     @FXML
     private TableColumn clNombres;
     @FXML
@@ -65,6 +71,12 @@ public class UsuarioControlador implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+    UsuarioDAO dao = new UsuarioDAO();
+    List<Usuario> listaUsuarios = dao.obtenerUsuarios();
+    this.usuario = FXCollections.observableArrayList(listaUsuarios);
+    tbUs.setItems(usuario);
+    
+    clId.setCellValueFactory(new PropertyValueFactory<>("id"));
     clNombres.setCellValueFactory(new PropertyValueFactory<>("nombres"));
     clApellidos.setCellValueFactory(new PropertyValueFactory<>("apellidos"));
     clEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
@@ -72,9 +84,6 @@ public class UsuarioControlador implements Initializable {
     clContraseña.setCellValueFactory(new PropertyValueFactory<>("contraseña"));
     clRol.setCellValueFactory(new PropertyValueFactory<>("rolAsignado"));
     clDepartamento.setCellValueFactory(new PropertyValueFactory<>("departamento"));
-
-    usuario = FXCollections.observableArrayList(); // por si lo quieres cargar desde aquí
-    tbUs.setItems(usuario);
     }    
 
     @FXML
@@ -101,9 +110,16 @@ public class UsuarioControlador implements Initializable {
             stage.showAndWait();
             
             Usuario us = controlador.getUsuario();
-            if(us != null){
-                this.usuario.add(us);
-                this.tbUs.refresh();
+            if (us != null) {
+                UsuarioDAO dao = new UsuarioDAO();
+                int idGenerado = dao.insertarUsuario(us);
+                if (idGenerado != -1) {
+                    us.setId(idGenerado);
+                    this.usuario.add(us);
+                    this.tbUs.refresh();
+                } else {
+                    mostrarError("Error al guardar en la base de datos.");
+                }
             }
             
         } catch (IOException ex) {
@@ -140,10 +156,22 @@ public class UsuarioControlador implements Initializable {
             stage.setScene(scene);
             stage.showAndWait();
             
-            Usuario usro = controlador.getUsuario();
-            if(usro != null){
-                this.tbUs.refresh();
+            Usuario actualizado = controlador.getUsuario();
+            if (actualizado != null) {
+                UsuarioDAO dao = new UsuarioDAO();
+                boolean exito = dao.actualizarUsuario(actualizado);
+                if (exito) {
+                    this.tbUs.refresh(); // Refrescar tabla
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setHeaderText(null);
+                    alert.setTitle("Información");
+                    alert.setContentText("Usuario actualizado correctamente.");
+                    alert.showAndWait();
+                } else {
+                    mostrarError("Error al actualizar en la base de datos.");
+                }
             }
+
             
         } catch (IOException ex) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -167,14 +195,45 @@ public class UsuarioControlador implements Initializable {
             alert.setContentText("Debes seleccionar una opcion");
             alert.showAndWait();
         }else{
-            this.usuario.remove(us);
-            this.tbUs.refresh();
-            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-            alert.setHeaderText(null);
-            alert.setTitle("Informacion");
-            alert.setContentText("Eliminado exitosamente");
-            alert.showAndWait();
+            Alert confirm = new Alert(Alert.AlertType.CONFIRMATION);
+            confirm.setHeaderText(null);
+            confirm.setTitle("Confirmar eliminación");
+            confirm.setContentText("¿Estás seguro de que deseas eliminar este usuario?");
+
+            Optional<ButtonType> result = confirm.showAndWait();
+            if (result.isPresent() && result.get() == ButtonType.OK) {
+                UsuarioDAO dao = new UsuarioDAO();
+                boolean exito = dao.eliminarUsuario(us.getId());
+                if (exito) {
+                    this.usuario.remove(us);
+                    this.tbUs.refresh();
+
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setHeaderText(null);
+                    alert.setTitle("Eliminado");
+                    alert.setContentText("Usuario eliminado correctamente.");
+                    alert.showAndWait();
+                } else {
+                    mostrarError("Error al eliminar en la base de datos.");
+                }
+            }
         }
     }
+    
+    private void mostrarError(String mensaje) {
+    Alert alert = new Alert(Alert.AlertType.ERROR);
+    alert.setHeaderText(null);
+    alert.setTitle("Error");
+    alert.setContentText(mensaje);
+    alert.showAndWait();
+}
+
+private void mostrarInfo(String mensaje) {
+    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+    alert.setHeaderText(null);
+    alert.setTitle("Información");
+    alert.setContentText(mensaje);
+    alert.showAndWait();
+}
     
 }

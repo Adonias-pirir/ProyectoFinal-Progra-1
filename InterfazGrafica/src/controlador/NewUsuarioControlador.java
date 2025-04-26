@@ -64,6 +64,7 @@ public class NewUsuarioControlador implements Initializable {
         this.email.setText(us.getEmail());
         this.nombreUsuario.setText(us.getNombreUsuario());
         this.contraseña.setText(us.getContraseña());
+        this.rolAsignado.setText(us.getRolAsignado());
         this.departamento.setText(us.getDepartamento());
     }
 
@@ -92,7 +93,7 @@ public class NewUsuarioControlador implements Initializable {
                 this.usuario.setDepartamento(departamento);
                 
             }else{
-                //insertando
+                //insertando la modificacion
             this.usuario = us;
             //this.usuarios.add(us);
             Alert alert = new Alert(Alert.AlertType.INFORMATION);

@@ -40,6 +40,8 @@ public class PrincipalControlador implements Initializable {
     private Button btnT;
     @FXML
     private Button btnG;
+    @FXML
+    private Button lblUsuario;
 
     /**
      * Initializes the controller class.
@@ -47,6 +49,7 @@ public class PrincipalControlador implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        lblUsuario.setText("-Bienvenido- \n" + Sesion.getTipoUsuario());
     }    
 
 
