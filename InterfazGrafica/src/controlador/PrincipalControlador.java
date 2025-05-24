@@ -206,14 +206,65 @@ public class PrincipalControlador implements Initializable {
 
     @FXML
     private void misTicket(MouseEvent event) {
+        try {
+            Stage actual = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            actual.hide();//esconder
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/vista/ListaUsuarioVista.fxml"));
+            
+            Parent root = loader.load();
+            
+            // Crear una nueva ventana
+            Stage stage = new Stage();
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.setScene(new Scene(root));
+            stage.showAndWait();
+            actual.show();
+            
+        } catch (IOException ex) {
+            Logger.getLogger(PrincipalControlador.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     @FXML
     private void ticketPendientes(MouseEvent event) {
+        try {
+            Stage actual = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            actual.hide();//esconder
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/vista/ListaTecnicoVista.fxml"));
+            
+            Parent root = loader.load();
+            
+            // Crear una nueva ventana
+            Stage stage = new Stage();
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.setScene(new Scene(root));
+            stage.showAndWait();
+            actual.show();
+            
+        } catch (IOException ex) {
+            Logger.getLogger(PrincipalControlador.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     @FXML
     private void gestionTicket(MouseEvent event) {
+        try {
+            Stage actual = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            actual.hide();//esconder
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/vista/ListaTecnicoVista.fxml"));
+            
+            Parent root = loader.load();
+            
+            // Crear una nueva ventana
+            Stage stage = new Stage();
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.setScene(new Scene(root));
+            stage.showAndWait();
+            actual.show();
+            
+        } catch (IOException ex) {
+            Logger.getLogger(PrincipalControlador.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
 

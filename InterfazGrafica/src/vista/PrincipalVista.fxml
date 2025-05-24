@@ -12,7 +12,7 @@
    <left>
       <VBox prefHeight="400.0" prefWidth="145.0" style="-fx-background-color: #024d5b;" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="lblUsuario" mnemonicParsing="false" prefHeight="107.0" prefWidth="145.0" style="-fx-background-color: #16d4e3; -fx-border-color: white; -fx-border-width: 0px 0px 2px 0px;" text="Bienvenido" textFill="WHITE">
+            <Button fx:id="lblUsuario" mnemonicParsing="false" prefHeight="107.0" prefWidth="145.0" style="-fx-background-color: #f9a60a; -fx-border-color: white; -fx-border-width: 0px 0px 2px 0px;" text="Bienvenido" textFill="WHITE">
                <font>
                   <Font size="15.0" />
                </font>
